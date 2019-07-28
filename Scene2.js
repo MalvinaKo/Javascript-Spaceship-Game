@@ -103,12 +103,20 @@ class Scene2 extends Phaser.Scene {
 
         //all a function to control players ship
         this.movePlayerManager();
-
+        
         if (Phaser.Input.Keyboard.JustDown(this.spacebar)){
             this.shootBeam();
         }
     }
+    
+    //creating new beam for shooting
+    shootBeam(){
+        var beam = new Beam(this);
+        //var beam = this.physics.add.sprite(this.player.x, this.player.y, "beam");      
+        
+    }
 
+    //allow player to move horizontally
     movePlayerManager(){
         if(this.cursorKeys.left.isDown){
             this.player.setVelocityX(-gameSettings.playerSpeed);
@@ -141,10 +149,6 @@ class Scene2 extends Phaser.Scene {
     }
 
     //function creats a new image object for shooting
-    shootBeam(){
-        var beam = new Beam(this);
-        //var beam = this.physics.add.sprite(this.player.x, this.player.y, "beam");      
-    }
 
 
 
